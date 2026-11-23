@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS "client" (
 );
 CREATE TABLE IF NOT EXISTS "invoice" (
 	"Invoice_ID"	INTEGER,
-	"Matter_ID"	INTEGER,
+	"Matter_ID"	INTEGER NOT NULL,
 	"Invoice_Number"	TEXT,
 	"Issue_Date"	TEXT,
 	"Status"	TEXT,
@@ -22,8 +22,8 @@ CREATE TABLE IF NOT EXISTS "invoice" (
 );
 CREATE TABLE IF NOT EXISTS "invoice_line" (
 	"Invoice_Line_ID"	INTEGER,
-	"Time_Entry_ID"	INTEGER,
-	"Invoice_ID"	INTEGER,
+	"Time_Entry_ID"	INTEGER NOT NULL,
+	"Invoice_ID"	INTEGER NOT NULL,
 	"Line_Number"	INTEGER,
 	"Amount"	REAL,
 	PRIMARY KEY("Invoice_Line_ID"),
@@ -41,8 +41,8 @@ CREATE TABLE IF NOT EXISTS "lawyer" (
 );
 CREATE TABLE IF NOT EXISTS "matter" (
 	"Matter_ID"	INTEGER,
-	"ResponsibleLawyer_ID"	INTEGER,
-	"Client_ID"	INTEGER,
+	"ResponsibleLawyer_ID"	INTEGER NOT NULL,
+	"Client_ID"	INTEGER NOT NULL,
 	"Matter_Title"	TEXT,
 	"Practice_Area"	TEXT,
 	"Open_Date"	TEXT,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS "matter" (
 );
 CREATE TABLE IF NOT EXISTS "payment" (
 	"Payment_ID"	INTEGER,
-	"Invoice_ID"	INTEGER,
+	"Invoice_ID"	INTEGER NOT NULL,
 	"Payment_Date"	TEXT,
 	"Amount"	REAL,
 	"Method"	TEXT,
@@ -64,8 +64,8 @@ CREATE TABLE IF NOT EXISTS "payment" (
 );
 CREATE TABLE IF NOT EXISTS "time_entry" (
 	"Time_Entry_ID"	INTEGER,
-	"Lawyer_ID"	INTEGER,
-	"Matter_ID"	INTEGER,
+	"Lawyer_ID"	INTEGER NOT NULL,
+	"Matter_ID"	INTEGER NOT NULL,
 	"Work_Date"	TEXT,
 	"Hours"	REAL,
 	"Rate"	REAL,
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS "time_entry" (
 );
 CREATE TABLE IF NOT EXISTS "trust_transaction" (
 	"Trust_Transaction_ID"	INTEGER,
-	"Matter_ID"	INTEGER,
+	"Matter_ID"	INTEGER NOT NULL,
 	"Invoice_ID"	INTEGER,
 	"Transaction_Date"	TEXT,
 	"Type"	TEXT,

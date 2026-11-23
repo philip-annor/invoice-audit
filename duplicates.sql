@@ -4,4 +4,4 @@ FROM invoice_line
 
 GROUP BY Time_Entry_ID
 
-HAVING COUNT() > 1;
+HAVING COUNT(*) > 1;
